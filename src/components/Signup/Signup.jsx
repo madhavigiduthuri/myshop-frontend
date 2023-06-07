@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import {RxAvatar} from "react-icons/rx";
 import axios from "axios";
 import { server } from "../../server";
+import { toast } from 'react-toastify';
 
 const Signup = () => {
     const [email,setEmail] = useState("");
@@ -34,12 +35,14 @@ const Signup = () => {
       axios
         .post(`${server}/user/create-user`, newForm, config)
         .then((res) => {
-         if(res.data.success === true){
-          navigate("/")
-          }
+           toast.success(res.data.message);
+           setName("");
+           setEmail("");
+           setPassword("");
+           setAvatar();
         })
-        .catch((err) => {
-          console.log(err);
+        .catch((error) => {
+          toast.error(error.response.data.message);
         });
     };
 
