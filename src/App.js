@@ -1,6 +1,12 @@
 import React, { useEffect } from "react";
 import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  useNavigate,
+  Navigate,
+} from "react-router-dom";
 import {
   HomePage,
   LoginPage,
@@ -10,22 +16,35 @@ import {
   BestSellingPage,
   EventsPage,
   FAQPage,
+  ProductDetailsPage,
+  ProfilePage,
+  ShopCreatePage,
+  SellerActivationPage,
+  ShopLoginPage,
 } from "./Routes.js";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Store from "./redux/store";
-import { loadUser } from "./redux/actions/user";
+import { loadSeller, loadUser } from "./redux/actions/user";
 import { useSelector } from "react-redux";
+import ProtectedRoute from "./ProtectedRoute";
+import { ShopHomePage } from "./ShopRoutes.js";
+import SellerProtectedRoute from "./SellerProtectedRoute";
 
 const App = () => {
-  const { loading } = useSelector((state) => state.user);
+  const { loading, isAuthenticated } = useSelector((state) => state.user);
+  const { isLoading, isSeller } = useSelector((state) => state.seller);
+
   useEffect(() => {
     Store.dispatch(loadUser());
+    Store.dispatch(loadSeller());
   }, []);
+
+  // console.log(isSeller, seller);
 
   return (
     <>
-      {loading ? null : (
+      {loading || isLoading ? null : (
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<HomePage />} />
@@ -35,10 +54,42 @@ const App = () => {
               path="/activation/:activation_token"
               element={<ActivationPage />}
             />
+            <Route
+              path="/seller/activation/:activation_token"
+              element={<SellerActivationPage />}
+            />
             <Route path="/products" element={<ProductsPage />} />
+            <Route path="/product/:name" element={<ProductDetailsPage />} />
             <Route path="/best-selling" element={<BestSellingPage />} />
             <Route path="/events" element={<EventsPage />} />
             <Route path="/faq" element={<FAQPage />} />
+            {/* <Route
+              path="/checkout"
+              element={
+                <ProtectedRoute isAuthenticated={isAuthenticated}>
+                  <CheckoutPage />
+                </ProtectedRoute>
+              }
+            /> */}
+            <Route
+              path="/profile"
+              element={
+                <ProtectedRoute isAuthenticated={isAuthenticated}>
+                  <ProfilePage />
+                </ProtectedRoute>
+              }
+            />
+            {/* shop Routes */}
+            <Route path="/shop-create" element={<ShopCreatePage />} />
+            <Route path="/shop-login" element={<ShopLoginPage />} />
+            <Route
+              path="/shop/:id"
+              element={
+                <SellerProtectedRoute isSeller={isSeller}>
+                  <ShopHomePage />
+                </SellerProtectedRoute>
+              }
+            />
           </Routes>
           <ToastContainer
             position="bottom-center"

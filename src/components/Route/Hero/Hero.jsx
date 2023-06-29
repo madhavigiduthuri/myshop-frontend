@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Hero = () => {
   return (
     <div
-      className={`relative min-h[70vh] 800px:min-h-[80vh] w-full bg-no-repeat ${styles.noramlFlex}`}
+      className={`relative min-h[70vh] 800px:min-h-[80vh] w-full bg-no-repeat ${styles.noramlFlex} pt-4 800px:pt-0`}
       style={{
         backgroundImage:
           "url(https://themes.rslahmed.dev/rafcart/assets/images/banner-2.jpg)",
@@ -13,7 +13,7 @@ const Hero = () => {
     >
       <div className={`${styles.section} w-[90%] 800px:w-[60%]`}>
         <h1
-          className={`text-[35px] leading-[1.2] 800px:text-[60px] text-[#32a850] font-[600] capitalize`}
+          className={`text-[35px] leading-[1.2] 800px:text-[60px] text-[#32a850] font-[600] capitalize `}
         >
           Best Collection for <br /> home Decoration
         </h1>
