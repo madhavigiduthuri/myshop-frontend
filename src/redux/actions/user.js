@@ -10,7 +10,6 @@ export const loadUser = () => async (dispatch) => {
     const data = await axios.get(`${server}/user/getuser`, {
       withCredentials: true,
     });
-    console.log("madhilu", data);
     dispatch({
       type: "LoadUserSuccess",
       payload: data.data.user,
@@ -32,10 +31,9 @@ export const loadSeller = () => async (dispatch) => {
     const data = await axios.get(`${server}/shop/getSeller`, {
       withCredentials: true,
     });
-    // console.log("madhu", data);
     dispatch({
       type: "LoadSellerSuccess",
-      payload: data.data.user,
+      payload: data.data.seller,
     });
   } catch (error) {
     dispatch({

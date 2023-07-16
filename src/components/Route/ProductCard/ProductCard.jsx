@@ -17,6 +17,7 @@ const ProductCard = ({ data }) => {
 
   const d = data.name;
   const product_name = d.replace(/\s+/g, "-");
+  // console.log("data mk", data);
 
   return (
     <>
@@ -24,10 +25,23 @@ const ProductCard = ({ data }) => {
         {/* <div className="flex justify-end"></div> */}
         <Link to={`/product/${product_name}`}>
           <img
-            src={data.image_Url[0].url}
+            src={data?.image_Url[0].url}
             alt="product-img"
             className="w-full h-[170px] object-contain"
           />
+          {/* {data?.image_Url?.length > 0 ? (
+            <img
+              src={data?.image_Url[0].url}
+              alt="product-img"
+              className="w-full h-[170px] object-contain"
+            />
+          ) : data?.images?.length > 0 ? (
+            <img
+              src={data?.images[0]}
+              alt="product-img"
+              className="w-full h-[170px] object-contain"
+            />
+          ) : null} */}
         </Link>
         <Link to="/">
           <h5 className={`${styles.shop_name}`}>{data.shop.name}</h5>
