@@ -37,19 +37,25 @@ const ProductDetailsCard = ({ setOpen, data }) => {
             />
             <div className="block w-full 800px:flex">
               <div className="w-full 800px:w-[50%]">
-                <img src={data.image_Url[0].url} alt="best-deal-img" />
+                <img src={data?.image_Url[0].url} alt="best-deal-img" />
+
+                {/* {data?.image_Url?.length > 0 ? (
+                  <img src={data?.image_Url[0].url} alt="best-deal-img" />
+                ) : data?.images?.length > 0 ? (
+                  <img src={data?.images[0]} alt="best-deal-img" />
+                ) : null} */}
                 <div className="flex">
                   <img
-                    src={data.shop.shop_avatar.url}
+                    src={data?.shop?.shop_avatar?.url}
                     alt="amazon-icon-img"
                     className="w-[50px] h-[50px] rounded-full mr-2"
                   />
                   <div>
                     <h3 className={`${styles.shop_name} text-[#31e8e5]`}>
-                      {data.shop.name}
+                      {data?.shop?.name}
                     </h3>
                     <h5 className="pb-3 text-[15px]">
-                      ({data.shop.ratings}) Ratings
+                      ({data?.shop?.ratings}) Ratings
                     </h5>
                   </div>
                 </div>

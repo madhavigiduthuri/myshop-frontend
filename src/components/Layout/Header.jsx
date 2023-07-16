@@ -80,7 +80,7 @@ const Header = ({ activeHeading }) => {
                   searchData.map((i, index) => {
                     const d = i.name;
 
-                    const Product_name = d.replace(/\s+/g, "-   ");
+                    const Product_name = d.replace(/\s+/g, "-");
                     return (
                       <Link to={`/product/${Product_name}`}>
                         <div className="w-full flex items-start-py-3">
@@ -225,7 +225,7 @@ const Header = ({ activeHeading }) => {
           <div>
             <div className="relative mr-[20px]">
               <AiOutlineShoppingCart size={30} />
-              <span class="absolute right-0 top-0 rounded-full bg-[#F6BA00] w-4 h-4 top right p-0 m-0 text-black font-mono text-[12px]  leading-tight text-center">
+              <span className="absolute right-0 top-0 rounded-full bg-[#F6BA00] w-4 h-4 top right p-0 m-0 text-black font-mono text-[12px]  leading-tight text-center">
                 1
               </span>
             </div>
@@ -240,7 +240,7 @@ const Header = ({ activeHeading }) => {
                 <div>
                   <div className="relative mr-[15px]">
                     <AiOutlineHeart size={30} className="mt-5 ml-3 mb-2" />
-                    <span class="absolute right-0 top-0 rounded-full bg-[#F6BA00] w-4 h-4 top right p-0 m-0 text-black font-mono text-[12px]  leading-tight text-center">
+                    <span className="absolute right-0 top-0 rounded-full bg-[#F6BA00] w-4 h-4 top right p-0 m-0 text-black font-mono text-[12px]  leading-tight text-center">
                       0
                     </span>
                   </div>

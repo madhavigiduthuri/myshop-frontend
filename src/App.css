@@ -36,3 +36,11 @@ select {
 .MuiDataGrid-root .MuiDataGrid-cell:focus {
   outline: solid green 1.25px !important;
 }
+
+/* type input type number right side arrow marks */
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

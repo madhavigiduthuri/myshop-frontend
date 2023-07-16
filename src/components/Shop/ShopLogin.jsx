@@ -30,7 +30,7 @@ const ShopLogin = () => {
       )
       .then((res) => {
         toast.success("Login Success!");
-        navigate("/");
+        navigate("/dashboard");
         window.location.reload(true);
       })
       .catch((err) => {
@@ -134,7 +134,7 @@ const ShopLogin = () => {
             </div>
             <div className={`${styles.noramlFlex} w-full`}>
               <h4>Not have any account?</h4>
-              <Link to="/sign-create" className="text-green-600 pl-2">
+              <Link to="/shop-create" className="text-green-600 pl-2">
                 Sign Up
               </Link>
             </div>
