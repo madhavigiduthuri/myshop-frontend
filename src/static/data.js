@@ -424,7 +424,7 @@ export const productData = [
       },
       {
         public_id: "test",
-        url: "https://eratablet.com/wp-content/uploads/2022/08/H51ba6537405f4948972e293927673546u.jpg",
+        url: "https://m.media-amazon.com/images/I/51JbsHSktkL._AC_UF1000,1000_QL80_.jpg",
       },
     ],
     shop: {
@@ -492,7 +492,7 @@ export const productData = [
       },
       {
         public_id: "test",
-        url: "https://eratablet.com/wp-content/uploads/2022/08/H51ba6537405f4948972e293927673546u.jpg",
+        url: "https://m.media-amazon.com/images/I/51JbsHSktkL._AC_UF1000,1000_QL80_.jpg",
       },
     ],
     shop: {
@@ -560,7 +560,7 @@ export const productData = [
       },
       {
         public_id: "test",
-        url: "https://eratablet.com/wp-content/uploads/2022/08/H51ba6537405f4948972e293927673546u.jpg",
+        url: "https://m.media-amazon.com/images/I/51JbsHSktkL._AC_UF1000,1000_QL80_.jpg",
       },
     ],
     shop: {
