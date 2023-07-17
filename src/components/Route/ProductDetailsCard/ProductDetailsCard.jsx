@@ -7,6 +7,8 @@ import {
   AiOutlineMessage,
   AiOutlineShoppingCart,
 } from "react-icons/ai";
+import { backend_url } from "../../../server";
+import { Link } from "react-router-dom";
 
 const ProductDetailsCard = ({ setOpen, data }) => {
   const [count, setCount] = useState(1);
@@ -45,15 +47,28 @@ const ProductDetailsCard = ({ setOpen, data }) => {
                   <img src={data?.images[0]} alt="best-deal-img" />
                 ) : null} */}
                 <div className="flex">
-                  <img
-                    src={data?.shop?.shop_avatar?.url}
-                    alt="amazon-icon-img"
-                    className="w-[50px] h-[50px] rounded-full mr-2"
-                  />
+                  {data && data?.shop && data?.shop?.shop_avatar ? (
+                    <img
+                      src={data?.shop?.shop_avatar?.url}
+                      alt="amazon-icon-img"
+                      className="w-[50px] h-[50px] rounded-full mr-2"
+                    />
+                  ) : data && data?.shop && data?.shop?.avatar ? (
+                    <Link to={`/shop/preview/${data?.shopId}`}>
+                      <img
+                        src={`${backend_url}${data?.shop?.avatar}`}
+                        alt="amazon-icon-img"
+                        className="w-[50px] h-[50px] rounded-full mr-2"
+                      />
+                    </Link>
+                  ) : null}
+
                   <div>
-                    <h3 className={`${styles.shop_name} text-[#31e8e5]`}>
-                      {data?.shop?.name}
-                    </h3>
+                    <Link to={`/shop/preview/${data?.shopId}`}>
+                      <h3 className={`${styles.shop_name} text-[#31e8e5]`}>
+                        {data?.shop?.name}
+                      </h3>
+                    </Link>
                     <h5 className="pb-3 text-[15px]">
                       ({data?.shop?.ratings}) Ratings
                     </h5>

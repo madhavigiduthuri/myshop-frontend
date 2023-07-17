@@ -38,7 +38,7 @@ const ProductDetails = ({ data }) => {
                 <img
                   src={data.image_Url[select].url}
                   alt="data-img"
-                  className="w-[80%]"
+                  className="w-[500px] h-[500px] object-contain"
                 />
                 <div className="w-full flex">
                   <div
@@ -47,7 +47,7 @@ const ProductDetails = ({ data }) => {
                     } cursor-pointer`}
                   >
                     <img
-                      src={data?.image_Url[0].url}
+                      src={data.image_Url[0].url}
                       alt="url-img"
                       className="h-[200px]"
                       onClick={() => setSelect(0)}
