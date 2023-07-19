@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 import styles from "../../styles/styles";
 import { categoriesData, productData } from "../../static/data";
 import {
@@ -20,6 +20,8 @@ import { RxCross1 } from "react-icons/rx";
 
 const Header = ({ activeHeading }) => {
   const { isAuthenticated, user } = useSelector((state) => state.user);
+  const { allProducts } = useSelector((state) => state.products);
+
   const [searchTerm, setSearchTerm] = useState("");
   const [searchData, setSearchData] = useState(null);
   const [active, setActive] = useState(false);
@@ -27,14 +29,22 @@ const Header = ({ activeHeading }) => {
   const [openCart, setOpenCart] = useState(false);
   const [openWishlist, setOpenWishlist] = useState(false);
   const [open, setOpen] = useState(false);
+  const { name } = useParams();
+  console.log("user image", `${backend_url}${user?.avatar}`);
+
+  useEffect(() => {
+    setSearchTerm("");
+  }, [name]);
 
   const handleSearchChange = (e) => {
     const term = e.target.value;
     setSearchTerm(term);
 
-    const filteredProducts = productData.filter((product) =>
-      product.name.toLowerCase().includes(term.toLowerCase())
-    );
+    const filteredProducts =
+      allProducts &&
+      allProducts?.filter((product) =>
+        product.name.toLowerCase().includes(term.toLowerCase())
+      );
     setSearchData(filteredProducts);
   };
 
@@ -74,19 +84,20 @@ const Header = ({ activeHeading }) => {
               size={30}
               className="absolute right-2 top-1.5 cursor-pointer"
             />
-            {searchData && searchData.length !== 0 ? (
+            {searchData && searchData.length !== 0 && searchTerm.length > 0 ? (
               <div className="absolute min-h-[30vh] bg-slate-50 shadow-sm-2 z-[9] p-4">
                 {searchData &&
                   searchData.map((i, index) => {
                     const d = i.name;
+                    // console.log("madhavi", i);
 
                     const Product_name = d.replace(/\s+/g, "-");
                     return (
                       <Link to={`/product/${Product_name}`}>
                         <div className="w-full flex items-start-py-3">
                           <img
-                            src={i.image_Url[0].url}
-                            alt=""
+                            src={`${i.image_Url[0].url}`}
+                            alt="product-img"
                             className="w-[40px] h-[40px] mr-[10px]"
                           />
                           <h1>{i.name}</h1>

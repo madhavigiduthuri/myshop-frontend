@@ -17,7 +17,7 @@ const ShopInfo = ({ isOwner }) => {
     axios
       .get(`${server}/shop/get-shop-info/${id}`)
       .then((res) => {
-        console.log(res.data.shop);
+        // console.log(res.data.shop);
         setData(res.data.shop);
         setIsLoading(false);
       })
