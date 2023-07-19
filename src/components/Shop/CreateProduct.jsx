@@ -48,7 +48,7 @@ const CreateProduct = () => {
       newForm.append("images", image);
     });
 
-    newForm.append("name", name);
+    newForm.append("name", name.replace(/-/g, " "));
     newForm.append("description", description);
     newForm.append("category", category);
     newForm.append("tags", tags);
