@@ -30,7 +30,6 @@ const Header = ({ activeHeading }) => {
   const [openWishlist, setOpenWishlist] = useState(false);
   const [open, setOpen] = useState(false);
   const { name } = useParams();
-  console.log("user image", `${backend_url}${user?.avatar}`);
 
   useEffect(() => {
     setSearchTerm("");

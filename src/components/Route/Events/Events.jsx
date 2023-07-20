@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 
 const Events = () => {
   const { allEvents, isLoading } = useSelector((state) => state.events);
-  console.log("allEvents", allEvents);
+  // console.log("allEvents", allEvents);
 
   return (
     <div>
