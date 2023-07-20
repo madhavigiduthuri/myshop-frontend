@@ -22,7 +22,7 @@ const ShopProfileData = ({ isOwner }) => {
   const allReviews =
     products && products.map((product) => product.reviews).flat();
 
-  console.log(allReviews);
+  // console.log(allReviews);
   return (
     <div className="w-full">
       <div className="flex w-full items-center justify-between">
@@ -112,17 +112,19 @@ const ShopProfileData = ({ isOwner }) => {
           {allReviews &&
             allReviews.map((item, index) => (
               <div className="w-full flex my-4">
-                <img
+                {/* <img
                   src={`${item?.user.avatar?.url}`}
                   className="w-[50px] h-[50px] rounded-full"
                   alt=""
-                />
+                /> */}
                 <div className="pl-2">
                   <div className="flex w-full items-center">
-                    <h1 className="font-[600] pr-2">{item?.user?.name}</h1>
+                    <h1 className="font-[600] pr-2">Rating: {item?.rating}</h1>
                     {/* <Ratings rating={item.rating} /> */}
                   </div>
-                  <p className="font-[400] text-[#000000a7]">{item?.comment}</p>
+                  <p className="font-[400] text-[#000000a7]">
+                    Review: {item?.review}
+                  </p>
                   <p className="text-[#000000a7] text-[14px]">{"2days ago"}</p>
                 </div>
               </div>

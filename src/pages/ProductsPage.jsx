@@ -14,12 +14,12 @@ const ProductsPage = () => {
 
   useEffect(() => {
     if (categoryData === null) {
-      const d =
-        allProducts && allProducts.sort((a, b) => a.sold_out - b.sold_out);
+      let d = [...allProducts];
+      d.sort((a, b) => a.sold_out - b.sold_out);
       setData(d);
     } else {
-      const d =
-        allProducts && allProducts.filter((i) => i.category === categoryData);
+      const d = allProducts?.filter((i) => i.category === categoryData);
+      d.sort((a, b) => a.sold_out - b.sold_out);
       setData(d);
     }
   }, [allProducts]);

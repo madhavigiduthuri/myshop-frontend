@@ -24,7 +24,7 @@ const AllCoupons = () => {
 
   const { seller } = useSelector((state) => state.seller);
   const { products } = useSelector((state) => state.products);
-  console.log("seller", seller);
+  // console.log("seller", seller);
 
   const dispatch = useDispatch();
 

@@ -4,7 +4,7 @@ import CountDown from "./CountDown";
 
 const EventCard = (props) => {
   const { active, data } = props;
-  console.log("events", data);
+  // console.log("events", data);
   return (
     <div
       className={`w-full block bg-white rounded-lg ${
