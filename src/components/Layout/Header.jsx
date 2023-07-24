@@ -22,7 +22,7 @@ const Header = ({ activeHeading }) => {
   const { isAuthenticated, user } = useSelector((state) => state.user);
   const { allProducts } = useSelector((state) => state.products);
   const { cart } = useSelector((state) => state.cart);
-
+  const { wishlist } = useSelector((state) => state.wishlist);
   const [searchTerm, setSearchTerm] = useState("");
   const [searchData, setSearchData] = useState(null);
   const [active, setActive] = useState(false);
@@ -88,12 +88,12 @@ const Header = ({ activeHeading }) => {
               <div className="absolute min-h-[30vh] bg-slate-50 shadow-sm-2 z-[9] p-4">
                 {searchData &&
                   searchData.map((i, index) => {
-                    const d = i.name;
+                    // const d = i.name;
                     // console.log("madhavi", i);
 
-                    const Product_name = d.replace(/\s+/g, "-");
+                    // const Product_name = d.replace(/\s+/g, "-");
                     return (
-                      <Link to={`/product/${Product_name}`}>
+                      <Link to={`/product/${i._id}`} key={index}>
                         <div className="w-full flex items-start-py-3">
                           <img
                             src={`${i.image_Url[0].url}`}
@@ -162,7 +162,7 @@ const Header = ({ activeHeading }) => {
               >
                 <AiOutlineHeart size={34} color="rgb(255 255 255 / 85%)" />
                 <span className="absolute right-0 top-0 rounded-full bg-[#F6BA00] w-4 h-4 top right p-0 m-0 text-[#000] font-mono text-[12px] leading-tight text-center">
-                  0
+                  {wishlist && wishlist.length}
                 </span>
               </div>
             </div>
@@ -273,12 +273,12 @@ const Header = ({ activeHeading }) => {
                 />
                 {searchData && (
                   <div className="absolute bg-[#fff] z-10 shadow w-full left-0 p-3">
-                    {searchData.map((i) => {
-                      const d = i.name;
+                    {searchData.map((i, index) => {
+                      // const d = i.name;
 
-                      const Product_name = d.replace(/\s+/g, "-");
+                      // const Product_name = d.replace(/\s+/g, "-");
                       return (
-                        <Link to={`/product/${Product_name}`}>
+                        <Link to={`/product/${i._id}`} key={index}>
                           <div className="flex items-center">
                             <img
                               src={i.image_Url[0].url}
