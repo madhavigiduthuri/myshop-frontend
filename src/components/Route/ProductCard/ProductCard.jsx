@@ -87,7 +87,7 @@ const ProductCard = ({ data }) => {
             />
           ) : null} */}
         </Link>
-        <Link to="/">
+        <Link to={`/shop/preview/${data?.shop?._id}`}>
           <h5 className={`${styles.shop_name}`}>{data.shop.name}</h5>
         </Link>
         <Link to={`/product/${data._id}`}>

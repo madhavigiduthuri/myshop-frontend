@@ -16,6 +16,12 @@ const Login = () => {
   //   backgroundColor: "yellow", // Replace with new color
   // };
 
+  /**
+   * @async
+   * @function handleSubmit to login into the website
+   * @param {event} e its a  event
+   * @returns null
+   */
   const handleSubmit = async (e) => {
     e.preventDefault();
 

@@ -17,6 +17,11 @@ import {
 import { addToCart } from "../../redux/actions/cart";
 import { toast } from "react-toastify";
 
+/**
+ *
+ * @param {*} param0
+ * @returns
+ */
 const ProductDetails = ({ data }) => {
   const { cart } = useSelector((state) => state.cart);
   const { wishlist } = useSelector((state) => state.wishlist);
@@ -31,9 +36,9 @@ const ProductDetails = ({ data }) => {
   // const { events } = useSelector((state) => state.events);
 
   useEffect(() => {
-    dispatch(getAllProductsShop(data && data.shop._id));
+    dispatch(getAllProductsShop(data && data?.shop._id));
     // console.log("d1", wishlist, data);
-    if (wishlist && wishlist.find((i) => i._id === data._id)) {
+    if (wishlist && wishlist.find((i) => i._id === data?._id)) {
       setClick(true);
     } else {
       setClick(false);
@@ -170,11 +175,13 @@ const ProductDetails = ({ data }) => {
                   </span>
                 </div>
                 <div className="flex items-center pt-8">
-                  {/* <img
-                    src={data.shop.shop_avatar.url}
-                    alt="amazon-icon"
-                    className="w-[55px] h-[55px] rounded-full mr-2"
-                  /> */}
+                  <Link to={`/shop/preview/${data?.shop._id}`}>
+                    <img
+                      src={`${backend_url}${data?.shop?.avatar}`}
+                      alt="amazon-icon"
+                      className="w-[55px] h-[55px] rounded-full mr-2"
+                    />
+                  </Link>
                   <div className="pr-8">
                     <Link to={`/shop/preview/${data?.shop._id}`}>
                       <h3 className={`${styles.shop_name} pb-1 pt-1`}>
