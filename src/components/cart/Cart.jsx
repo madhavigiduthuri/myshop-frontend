@@ -58,7 +58,7 @@ const Cart = ({ setOpenCart }) => {
               </div>
               {/* cart Single Items */}
               <br />
-              <div className="w-full border-t">
+              <div className="w-full border-t overflow-y-scroll h-[500px]">
                 {cart &&
                   cart.map((i, index) => (
                     <CartSingle

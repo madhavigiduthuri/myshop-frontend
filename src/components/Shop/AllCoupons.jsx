@@ -30,19 +30,20 @@ const AllCoupons = () => {
 
   useEffect(() => {
     setIsLoading(true);
+    console.log("id", seller?._id);
     axios
       .get(`${server}/coupon/get-coupon/${seller._id}`, {
         withCredentials: true,
       })
       .then((res) => {
         setIsLoading(false);
-        // console.log(res.data);
+        console.log(res.data);
         setCoupons(res.data.couponCodes);
       })
       .catch((error) => {
         setIsLoading(false);
       });
-  }, [dispatch]);
+  }, [seller]);
 
   const handleDelete = (id) => {
     // console.log(id);
@@ -60,16 +61,19 @@ const AllCoupons = () => {
           name,
           minAmount,
           maxAmount,
-          selectProducts,
+          selectedProduct: selectProducts,
           value,
           shop: seller,
+          shop_id: seller?._id,
         },
         { withCredentials: true }
       )
       .then((res) => {
+        console.log("res", res);
         toast.success("Coupon code created successfully!");
         setOpen(false);
-        window.location.relaod();
+        window.location.reload();
+        // window.location.relaod();
       })
       .catch((error) => {
         toast.error(error.response.data.message);

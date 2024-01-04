@@ -20,7 +20,7 @@ export const userReducer = createReducer(initialState, {
   },
 
   // update user information
-  uodateUserInfoRequest: (state) => {
+  updateUserInfoRequest: (state) => {
     state.loading = true;
   },
   updateUserInfoSuccess: (state, action) => {
