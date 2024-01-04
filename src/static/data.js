@@ -271,11 +271,11 @@ export const productData = [
     image_Url: [
       {
         public_id: "test",
-        url: "https://www.istorebangladesh.com/images/thumbs/0000286_macbook-pro-m1_550.png",
+        url: "https://m.media-amazon.com/images/I/71WtFY52CeL._AC_UF1000,1000_QL80_.jpg",
       },
       {
         public_id: "test",
-        url: "https://www.istorebangladesh.com/images/thumbs/0000286_macbook-pro-m1_550.png",
+        url: "https://m.media-amazon.com/images/I/71WtFY52CeL._AC_UF1000,1000_QL80_.jpg",
       },
     ],
     shop: {
@@ -330,11 +330,11 @@ export const productData = [
     image_Url: [
       {
         public_id: "test",
-        url: "https://www.istorebangladesh.com/images/thumbs/0000286_macbook-pro-m1_550.png",
+        url: "https://www.dpsb.co.uk/app/uploads/2022/06/MacBook-Pro-13-inch-Apple-M2-chip-8C-CPU-10C-GPU-8GB-RAM-512GB-SSD-Space-Grey.jpg",
       },
       {
         public_id: "test",
-        url: "https://www.istorebangladesh.com/images/thumbs/0000286_macbook-pro-m1_550.png",
+        url: "https://www.dpsb.co.uk/app/uploads/2022/06/MacBook-Pro-13-inch-Apple-M2-chip-8C-CPU-10C-GPU-8GB-RAM-512GB-SSD-Space-Grey.jpg",
       },
     ],
     shop: {

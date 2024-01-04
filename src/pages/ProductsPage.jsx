@@ -22,7 +22,7 @@ const ProductsPage = () => {
       d.sort((a, b) => a.sold_out - b.sold_out);
       setData(d);
     }
-  }, [allProducts]);
+  }, [allProducts, categoryData]);
 
   return (
     <div>

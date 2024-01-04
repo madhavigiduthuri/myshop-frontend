@@ -121,7 +121,7 @@ const ProductDetails = ({ data }) => {
                 <p>{data?.description}</p>
                 <div className="flex">
                   <h4 className={`${styles.productDiscountPrice}`}>
-                    {data.discountPrice}$
+                    {data.discount_price}$
                   </h4>
                   <h3 className={`${styles.price}`}>
                     {data.originalPrice ? data.originalPrice + "$" : null}

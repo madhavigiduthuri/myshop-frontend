@@ -19,6 +19,7 @@ const Wishlist = ({ setOpenWishlist }) => {
   const addToCartHandler = (data) => {
     const newData = { ...data, qty: 1 };
     dispatch(addToCart(newData));
+    removeFormWishlistHandler(data);
     setOpenWishlist(false);
   };
 
@@ -82,15 +83,16 @@ const CartSingle = ({ data, removeFormWishlistHandler, addToCartHandler }) => {
     <div className="border-b p-4">
       <div className="w-full flex items-center">
         <RxCross1
+          size={20}
           className="cursor-pointer"
           onClick={() => removeFormWishlistHandler(data)}
         />
         <img
           src={`${data?.image_Url[0].url}`}
           alt="cloth-img"
-          className="w-[130px] h-min ml-2 mr-2 rounded-[5px]"
+          className="w-[20%] h-min ml-2 mr-2 rounded-[5px]"
         />
-        <div className="pl-[5px] p-[5px]">
+        <div className="pl-[5px] p-[5px] w-[60%]">
           <h1 className="text-[15px]">{data.name}</h1>
           <h4 className="font-[600] text-[17px] pt-[3px] text-[#d02222] font-Roboto">
             US${totalPrice}
